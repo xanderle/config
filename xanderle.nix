@@ -3,6 +3,7 @@
     ./applications/alacritty
     ./applications/zsh 
     ./applications/neovim 
+    ./applications/git
     ./applications/tmux ];
 	
     home.packages = with pkgs; [
