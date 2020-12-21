@@ -13,6 +13,10 @@ fun! GotoWindow(id)
     MaximizerToggle
 endfun
 
+" Prettier command
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+
 " Debugger remaps
 nnoremap <leader>m :MaximizerToggle!<CR>
 nnoremap <leader>dd :call vimspector#Launch()<CR>

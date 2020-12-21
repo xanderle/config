@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }:
- 
+
 {
   programs.alacritty = {
     enable = true;
@@ -15,8 +15,8 @@
       font = {
         normal= {
           family= "Hack Nerd Font Mono";
-  };
-  };
+        };
+      };
     };
   };
 }

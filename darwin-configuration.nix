@@ -33,8 +33,8 @@
     package = pkgs.yabai;
     #enableScriptingAddition = true;
     config = {
-      window_border              = "on";
-      window_border_width        = 5;
+#      window_border              = "on";
+#      window_border_width        = 5;
       #active_window_border_color = "0xff81a1c1";
       #normal_window_border_color = "0xff3b4252";
       #focus_follows_mouse        = "autoraise";
@@ -89,10 +89,11 @@
   };
 
 
-  environment.systemPackages = with pkgs;
-    [ 
-    ];
-
+#  environment.systemPackages = with pkgs;
+#    [ 
+#      "./overlays/default.nix"
+#    ];
+#
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
@@ -100,7 +101,9 @@
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
-
+  nixpkgs.overlays = [
+  
+  ];
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
   # programs.fish.enable = true;
