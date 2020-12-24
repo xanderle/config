@@ -4,9 +4,11 @@
     ./applications/zsh 
     ./applications/neovim 
     ./applications/git
+    ./applications/fzf
     ./applications/tmux ];
 	
     home.packages = with pkgs; [
+      kubectl
  	atool 
 	httpie
 	weechat

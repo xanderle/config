@@ -8,6 +8,6 @@
       tmux-fzf
       resurrect
     ];
-
+    escapeTime = 0;
   };
 }
