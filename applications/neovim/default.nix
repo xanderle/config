@@ -1,5 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let vim-maximizer = pkgs.vimUtils.buildVimPlugin {
+    pname = "vim-maximizer";
+    version ="2015-08-22";
+    src = pkgs.fetchFromGitHub {
+      owner = "szw";
+      repo = "vim-maximizer";
+      rev = "2e54952fe91e140a2e69f35f22131219fcd9c5f1";
+      sha256 = "031brldzxhcs98xpc3sr0m2yb99xq0z5yrwdlp8i5fqdgqrdqlzr";
+    };
+    meta.homepage = "https://github.com/szw/vim-maximizer";
+  };
+
+in
 {
 
   home.sessionVariables.EDITOR = "nvim";
@@ -59,6 +72,7 @@
       nerdtree-git-plugin
       vim-devicons
       vim-nerdtree-syntax-highlight
+      vim-maximizer
     ];
     extraConfig = ''
       source $HOME/.config/nvim/plug-config/coc.vim

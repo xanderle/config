@@ -8,6 +8,7 @@
     ./applications/tmux ];
 	
     home.packages = with pkgs; [
+      silver-searcher
       ripgrep
       kubectl
  	atool 
