@@ -88,10 +88,11 @@
     dnd_icon           = "";
   };
 
-
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball https://github.com/mozilla/nixpkgs-mozilla/archive/master.tar.gz))
+  ];
 #  environment.systemPackages = with pkgs;
 #    [ 
-#      "./overlays/default.nix"
 #    ];
 #
   # Use a custom configuration.nix location.
@@ -101,9 +102,6 @@
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
-  nixpkgs.overlays = [
-  
-  ];
   # Create /etc/bashrc that loads the nix-darwin environment.
   programs.zsh.enable = true;  # default shell on catalina
   # programs.fish.enable = true;

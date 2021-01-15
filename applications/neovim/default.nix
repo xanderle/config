@@ -54,10 +54,21 @@ in
       }
       vim-nix
       coc-nvim
+      {
+        plugin=coc-go;
+        config=''
+        autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+        '';
+      }
       coc-tsserver
       coc-yaml
       coc-json
-      coc-prettier
+      {
+        plugin=coc-prettier;
+        config=''
+          command! -nargs=0 Prettier :CocCommand prettier.formatFile
+        '';
+      }
       fzf-vim
       vim-tmux-navigator
       vim-dispatch
@@ -73,18 +84,38 @@ in
       vim-devicons
       vim-nerdtree-syntax-highlight
       vim-maximizer
+      vim-markdown-composer
     ];
     extraConfig = ''
       source $HOME/.config/nvim/plug-config/coc.vim
       set nocompatible
       filetype plugin indent on                        " enable filetype detection
-      set tabstop=4
+      set tabstop=4 softtabstop=4
       set shiftwidth=4
       set expandtab
+      set nowrap
       let mapleader = " "
+      set relativenumber
+      set nu
+      set nohlsearch
+      set autoread
       '';
   };
-  xdg.configFile."nvim/coc-settings.json".text = "{}";
+  xdg.configFile."nvim/coc-settings.json".text = ''
+    {
+    "diagnostic.checkCurrentLine": true,
+    "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  }
+    }
+    '';
   xdg.configFile."nvim/plug-config/coc.vim".source= ./plug-config/coc.vim;
 
 }
