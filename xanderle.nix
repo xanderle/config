@@ -38,7 +38,7 @@
 	  bat
 	  lazygit
 	  lazydocker
-	  nodejs
+      nodejs-10_x
 	  yarn
     ];
 }	
