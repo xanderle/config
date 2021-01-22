@@ -5,6 +5,7 @@
     ./applications/neovim 
     ./applications/git
     ./applications/fzf
+    ./applications/direnv
     ./applications/tmux ];
 	
 #  nixpkgs.overlays = [

@@ -62,6 +62,7 @@ in
       }
       coc-tsserver
       coc-yaml
+      coc-rls
       coc-json
       {
         plugin=coc-prettier;
@@ -103,6 +104,7 @@ in
   };
   xdg.configFile."nvim/coc-settings.json".text = ''
     {
+    "rust-client.disableRustup": true,
     "diagnostic.checkCurrentLine": true,
     "languageserver": {
     "golang": {
