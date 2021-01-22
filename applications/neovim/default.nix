@@ -70,6 +70,14 @@ in
           command! -nargs=0 Prettier :CocCommand prettier.formatFile
         '';
       }
+      typescript-vim
+      { 
+        plugin=vim-jsx-typescript;
+        config=''
+          " set filetypes as typescriptreact
+          autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+          '';
+      }
       fzf-vim
       vim-tmux-navigator
       vim-dispatch
