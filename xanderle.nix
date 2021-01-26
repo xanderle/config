@@ -26,6 +26,7 @@
     home.packages = with pkgs; [
       asciinema
       go
+      taskwarrior
       silver-searcher
       ripgrep
       kubectl
